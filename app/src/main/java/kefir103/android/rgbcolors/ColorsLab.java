@@ -20,10 +20,18 @@ public class ColorsLab {
 
     private void setTargetColor() {
         Log.d(TAG, "setTargetColor()...");
-        targetColor = Color.rgb(
-                mRandom.nextInt(255),
-                mRandom.nextInt(255),
-                mRandom.nextInt(255));
+        if (MainActivity.isRGBFlag()){
+            targetColor = Color.rgb(
+                    mRandom.nextInt(255),
+                    mRandom.nextInt(255),
+                    mRandom.nextInt(255));
+        } else {
+            targetColor = Color.argb(mRandom.nextInt(255),
+                    mRandom.nextInt(255),
+                    mRandom.nextInt(255),
+                    mRandom.nextInt(255));
+        }
+
         Log.d(TAG, "targetColor is: " + targetColor);
     }
 
@@ -33,10 +41,17 @@ public class ColorsLab {
 
     public int getColor(){
         do{
-            btnColor = Color.rgb(
-                    mRandom.nextInt(255),
-                    mRandom.nextInt(255),
-                    mRandom.nextInt(255));
+            if (MainActivity.isRGBFlag()){
+                btnColor = Color.rgb(
+                        mRandom.nextInt(255),
+                        mRandom.nextInt(255),
+                        mRandom.nextInt(255));
+            } else {
+                btnColor = Color.argb(mRandom.nextInt(255),
+                        mRandom.nextInt(255),
+                        mRandom.nextInt(255),
+                        mRandom.nextInt(255));
+            }
         } while (btnColor == targetColor);
         return btnColor;
     }

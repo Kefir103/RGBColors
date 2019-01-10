@@ -5,4 +5,6 @@
     <string name="incorrect_toast">Неверно!</string>
     <string name="game_over">Вы проиграли! Перезапустите Ваше приложение</string>
     <string name="correct_answers">"Верных ответов: "</string>
+    <string name="argb_scheme_subtitle">ARGB Схема</string>
+    <string name="rgb_scheme_subtitle">RGB Схема</string>
 </resources>

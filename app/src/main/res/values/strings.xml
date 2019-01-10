@@ -6,4 +6,8 @@
     <string name="incorrect_toast">Incorrect!</string>
     <string name="game_over">You lose! Reset your app</string>
     <string name="correct_answers">Correct answers: </string>
+    <string name="to_rgb_menu_item" translatable="false">TO RGB</string>
+    <string name="to_argb_menu_item" translatable="false">TO ARGB</string>
+    <string name="rgb_scheme_subtitle">RGB Scheme</string>
+    <string name="argb_scheme_subtitle">ARGB Scheme</string>
 </resources>

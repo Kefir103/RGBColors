@@ -4,9 +4,10 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,15 +28,44 @@ public class MainActivity extends AppCompatActivity {
     int mAttempts = 5;
     int mCorrect;
 
+    static boolean RGBFlag = true;
+
     Random mRandom = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getSupportActionBar().setSubtitle(R.string.rgb_scheme_subtitle);
         initViews();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(Menu.NONE, R.id.change_colors_item, Menu.NONE, R.string.to_argb_menu_item);
+        menu.getItem(0).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.change_colors_item){
+            if (RGBFlag){
+                item.setTitle(R.string.to_rgb_menu_item);
+                getSupportActionBar().setSubtitle(R.string.argb_scheme_subtitle);
+                RGBFlag = false;
+                setColors();
+                return true;
+            } else {
+                item.setTitle(R.string.to_argb_menu_item);
+                getSupportActionBar().setSubtitle(R.string.rgb_scheme_subtitle);
+                RGBFlag = true;
+                setColors();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initViews(){
@@ -54,10 +84,15 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "setColors()...");
 
         ColorsLab colorsLab = new ColorsLab();
-        String hexString = new String(
-                Integer.toHexString(colorsLab.getTargetColor())
-                        .substring(2, 8)
-                        .toUpperCase());
+        String hexString;
+        if (isRGBFlag()){
+            hexString = Integer.toHexString(colorsLab.getTargetColor())
+                    .substring(2, 8)
+                    .toUpperCase();
+        } else {
+            hexString = Integer.toHexString(colorsLab.getTargetColor()).toUpperCase();
+        }
+
         mTvColor.setTextColor(colorsLab.getTargetColor());
         mTvColor.setText("#" + hexString);
         int targetColorPosition = mRandom.nextInt(3);
@@ -110,4 +145,7 @@ public class MainActivity extends AppCompatActivity {
         mTvRetryCounter.setText(R.string.game_over);
     }
 
+    public static boolean isRGBFlag() {
+        return RGBFlag;
+    }
 }
