@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="retry_counter">Количество попыток: </string>
+    <string name="correct_toast">Верно!</string>
+    <string name="incorrect_toast">Неверно!</string>
+    <string name="game_over">Вы проиграли! Перезапустите Ваше приложение</string>
+    <string name="correct_answers">"Верных ответов: "</string>
+</resources>

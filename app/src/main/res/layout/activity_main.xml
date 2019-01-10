@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="18dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_retry_counter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/retry_counter"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38sp"
+        android:layout_marginBottom="38sp"
+        android:gravity="center"
+        android:textSize="30sp"
+        tools:text="Color"
+        tools:textSize="30sp" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/btn_TL"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:onClick="checkColor"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/btn_TR"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:onClick="checkColor"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/btn_BL"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:onClick="checkColor"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/btn_BR"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:onClick="checkColor"
+            android:layout_margin="5dp"/>
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/tv_correct_answers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/correct_answers"/>
+
+</LinearLayout>
