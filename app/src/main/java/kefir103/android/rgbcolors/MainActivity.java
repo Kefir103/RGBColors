@@ -54,8 +54,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "setColors()...");
 
         ColorsLab colorsLab = new ColorsLab();
+        String hexString = new String(
+                Integer.toHexString(colorsLab.getTargetColor())
+                        .substring(2, 8)
+                        .toUpperCase());
         mTvColor.setTextColor(colorsLab.getTargetColor());
-        mTvColor.setText("#" + Integer.toHexString(colorsLab.getTargetColor()).toUpperCase());
+        mTvColor.setText("#" + hexString);
         int targetColorPosition = mRandom.nextInt(3);
 
         for (int i = 0; i < 4; i++){
@@ -105,4 +109,5 @@ public class MainActivity extends AppCompatActivity {
 
         mTvRetryCounter.setText(R.string.game_over);
     }
+
 }
