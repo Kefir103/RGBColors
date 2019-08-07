@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">RGB Цвета</string>
     <string name="retry_counter">Количество попыток: </string>
     <string name="correct_toast">Верно!</string>
     <string name="incorrect_toast">Неверно!</string>
